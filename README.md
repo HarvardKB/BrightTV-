@@ -199,7 +199,7 @@ LEFT JOIN brighttv v
     
     -- 6. NEW: Day Type (Using a CASE statement)
     CASE 
-        -- Check if the day name is Saturday or Sunday (case-insensitive check is safest)
+        -- 
         WHEN UPPER(DAYNAME(CONVERT_TIMEZONE('UTC', 'Africa/Johannesburg', TO_TIMESTAMP_NTZ(v.recorddate2, 'YYYY/MM/DD HH24:MI')))) IN ('Sat','Sun') 
         THEN 'Weekend'
         ELSE 'Weekday'
@@ -238,7 +238,7 @@ SELECT
     -- 5. SA Day Name (Will return 'Sat', 'Sun', 'Mon', etc.)
     DAYNAME(CONVERT_TIMEZONE('UTC', 'Africa/Johannesburg', TO_TIMESTAMP_NTZ(v.recorddate2, 'YYYY/MM/DD HH24:MI'))) AS day_name,
     
-    -- 6. NEW: Day Type (Checking for 'SAT' or 'SUN')
+    -- 6. NEW: Day Type 
     CASE 
         -- Use SUBSTRING or a known abbreviation function if DAYNAME returns a full name, 
         -- but since you say it's 'Sat'/'Sun', we check for those directly.
@@ -277,7 +277,7 @@ SELECT
     -- 5. SA Day Name
     DAYNAME(CONVERT_TIMEZONE('UTC', 'Africa/Johannesburg', TO_TIMESTAMP_NTZ(v.recorddate2, 'YYYY/MM/DD HH24:MI'))) AS day_name,
     
-    -- 6. Day Type (Checking for 'SAT' or 'SUN')
+    -- 6. Day Type
     CASE 
         WHEN UPPER(DAYNAME(CONVERT_TIMEZONE('UTC', 'Africa/Johannesburg', TO_TIMESTAMP_NTZ(v.recorddate2, 'YYYY/MM/DD HH24:MI')))) IN ('SAT', 'SUN')
         THEN 'Weekend'
@@ -389,7 +389,7 @@ SELECT
     -- 5. SA Day Name
     DAYNAME(CONVERT_TIMEZONE('UTC', 'Africa/Johannesburg', TO_TIMESTAMP_NTZ(v.recorddate2, 'YYYY/MM/DD HH24:MI'))) AS day_name,
     
-    -- 6. Day Type (Checking for 'SAT' or 'SUN')
+    -- 6. Day Type 
     CASE 
         WHEN UPPER(DAYNAME(CONVERT_TIMEZONE('UTC', 'Africa/Johannesburg', TO_TIMESTAMP_NTZ(v.recorddate2, 'YYYY/MM/DD HH24:MI')))) IN ('SAT', 'SUN')
         THEN 'Weekend'
